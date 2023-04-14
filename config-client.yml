@@ -1,0 +1,9 @@
+server:
+  port: 9999
+
+  error:
+    whitelabel:
+      enabled: false
+      spring:
+        config:
+            uri: http://localhost:8888

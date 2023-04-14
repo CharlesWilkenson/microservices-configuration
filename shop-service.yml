@@ -1,0 +1,69 @@
+server:
+  port: 8082
+
+  error:
+    whitelabel:
+      enabled: false
+
+
+spring:
+  config:
+     import: optional:configserver:http://localhost:8080
+  jpa:
+    properties:
+      hibernate:
+        cache:
+          use_second_level_cache: true
+          region:
+            factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+
+        type: trace
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #database-platform: org.hibernate.dialect.MySQL57Dialect
+    database: postgresql
+  datasource:
+    hikari:
+      maxLifetime: 600000
+    url: jdbc:postgresql://localhost:5432/shopdb #${ENGINE_DB_URL}
+    username: postgres #${ENGINE_DB_USER_NAME}
+    password: postgre #${ENGINE_DB_USER_PASS}
+  flyway:
+    locations: classpath:db.migration
+    baseline-on-migrate: true
+    flyway:
+      ignore-future-migrations: false
+
+  messages:
+    basename: messages/messages
+
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 10MB
+
+  mvc:
+    path:
+      match:
+        matching-strategy: ant-path-matcher
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+path:
+  dirname: ${user.home}/logoBoutiques/
+  username: wilki
+  password: wilki1234
+
+
+
+
+
+
+
+
