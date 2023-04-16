@@ -23,7 +23,7 @@ spring:
       ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    #database-platform: org.hibernate.dialect.MySQL57Dialect
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
     database: postgresql
   datasource:
     hikari:
