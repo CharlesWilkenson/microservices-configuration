@@ -59,7 +59,7 @@ path:
   password: wilki1234
 
 
-value.crypted: dadaae0b9a75dbc8e8666127bf39769acaa4512cf38fa7fdbe947ccf06a13e34
+value.crypted: {cipher}dadaae0b9a75dbc8e8666127bf39769acaa4512cf38fa7fdbe947ccf06a13e34
 
 
 
