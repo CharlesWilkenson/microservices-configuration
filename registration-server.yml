@@ -1,0 +1,13 @@
+server:
+  port: 7070
+
+  error:
+    whitelabel:
+      enabled: false
+
+eureka:
+  instance:
+     hostname: localhost
+  client: 
+     registrationWithEureka: false
+     serviceUrl.defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/      
