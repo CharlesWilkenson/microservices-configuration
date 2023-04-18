@@ -60,12 +60,11 @@ path:
   dirname: ${user.home}/imageProfiles/
 
 eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
   instance:
     preferIpAddress: true
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl.defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 
 
