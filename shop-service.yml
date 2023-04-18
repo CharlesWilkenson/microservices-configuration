@@ -64,7 +64,7 @@ eureka:
   client:
     registerWithEureka: true
     fetchRegistry: true
-    serviceUrl.defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    serviceUrl.defaultZone: http://localhost:7070/eureka/
 
 value.crypted: {cipher}dadaae0b9a75dbc8e8666127bf39769acaa4512cf38fa7fdbe947ccf06a13e34
 
