@@ -56,7 +56,13 @@ path:
   username: wilki
   password: wilki1234
 
-
+eureka:
+  instance:
+    preferIdAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl.defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 
 
