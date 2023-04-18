@@ -28,7 +28,7 @@ spring:
   datasource:
     hikari:
       maxLifetime: 600000
-    url: jdbc:postgresql://localhost:5432/profiledb #${ENGINE_DB_URL}
+    url: jdbc:postgresql://localhost:5432/shopdb #${ENGINE_DB_URL}
     username: postgres #${DB_USER_NAME}
     password: postgre #${DB_USER_PASS}
   flyway:
