@@ -61,7 +61,7 @@ path:
 
 eureka:
   instance:
-    preferIdAddress: true
+    preferIpAddress: true
   client:
     registerWithEureka: true
     fetchRegistry: true
