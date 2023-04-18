@@ -5,7 +5,6 @@ server:
     whitelabel:
       enabled: false
 
-
 spring:
   jpa:
     properties:
@@ -29,9 +28,9 @@ spring:
   datasource:
     hikari:
       maxLifetime: 600000
-    url: jdbc:postgresql://localhost:5432/shopdb #${ENGINE_DB_URL}
-    username: postgres #${ENGINE_DB_USER_NAME}
-    password: postgre #${ENGINE_DB_USER_PASS}
+    url: jdbc:postgresql://localhost:5432/profiledb #${ENGINE_DB_URL}
+    username: postgres #${DB_USER_NAME}
+    password: postgre #${DB_USER_PASS}
   flyway:
     locations: classpath:db.migration
     baseline-on-migrate: true
@@ -48,15 +47,17 @@ spring:
 
   mvc:
     path:
-      match:
-        matching-strategy: ant-path-matcher
+       match:
+         matching-strategy: ant-path-matcher
   jackson:
     serialization:
       fail-on-empty-beans: false
+ # config:
+   # activate:
+     # on-profile:
+       # active: dev
 path:
   dirname: ${user.home}/logoBoutiques/
-  username: wilki
-  password: wilki1234
 
 eureka:
   instance:
