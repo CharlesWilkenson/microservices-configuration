@@ -6,32 +6,6 @@ server:
       enabled: false
 
 spring:
-  jpa:
-    properties:
-      hibernate:
-        cache:
-          use_second_level_cache: true
-          region:
-            factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
-
-        type: trace
-        jdbc:
-          lob:
-            non_contextual_creation: true
-    show-sql: false
-    hibernate:
-      ddl-auto: none
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
-    database: postgresql
-  datasource:
-    hikari:
-      maxLifetime: 600000
-    url: jdbc:postgresql://localhost:5434/localizationdb #${ENGINE_DB_URL}
-    username: postgres #${DB_USER_NAME}
-    password: postgres #${DB_USER_PASS}
-
   messages:
     basename: messages/messages
 
@@ -53,8 +27,7 @@ spring:
        # active: dev
 path:
   dirname: ${user.home}/logoBoutiques/
-  username: wilki
-  password: wilki1234
+
 
 eureka:
   instance:
