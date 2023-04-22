@@ -1,0 +1,28 @@
+server:
+  port: 9999
+
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  mvc:
+    path:
+       match:
+         matching-strategy: ant-path-matcher
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl.defaultZone: http://localhost:7070/eureka/
+
+
+
+
+
