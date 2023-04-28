@@ -37,6 +37,30 @@ spring:
     flyway:
       ignore-future-migrations: false
 
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/certs
+
+      client:
+        registration:
+          trap2-web-client:
+            client-id: trap2-gateway-client
+            client-secret: 8ihQli4nf3P94ON7SIUVbjderoMEv4ND
+            authorization-grant-type: client_credentials
+
+        provider:
+          trap2-web-client:
+            token-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/token
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbit
+    password: rabbit  
+
   messages:
     basename: messages/messages
 
@@ -68,6 +92,57 @@ eureka:
     serviceUrl.defaultZone: http://localhost:7070/eureka/
 
 
+management:
+  health:
+    circuit-breakers:
+      enabled: true
+    rate-limiters:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  # Micrometer related properties
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+
+
+resilience4j:circuitbreaker:
+  instances:
+    detailsForCustomerSupportApp:
+      minimum-number-of-calls: 5
+      failure-rate-threshold: 5
+      wait-duration-in-open-state: 3000
+      permitted-number-of-calls-in-half-open-state: 2
+  configs:
+    default:
+      register-health-indicator:
+
+
+resilience4j.rate-limiter:
+  instances:
+    sayHello:
+      limit-for-period: 1
+      limit-refresh-period: 1s
+      timeout-duration: 0
+      register-health-indicator: true
+      event-consumer-buffer-size: 1
+
+
+# traceID and spanId are predefined MDC keys - we want the logs to include them
+logging:
+  level:
+    org.springframework.web: DEBUG
+  pattern:
+    level: 5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]
 
 
 

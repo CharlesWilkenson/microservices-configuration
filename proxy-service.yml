@@ -14,6 +14,87 @@ spring:
     serialization:
       fail-on-empty-beans: false
 
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: ".*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      routes:
+        - id: r2
+          uri: "lb://profile-service"
+          predicates:
+            - Path= /profile-service/**
+
+        - id: r3
+          uri: "lb://shop-service"
+          predicates:
+            - Path= /shop-service/**
+
+        - id: r4
+          uri: "lb://localization-service"
+          predicates:
+            - Path= /localization-service/**
+
+      default-filters:
+         - TokenRelay=
+         - RemoveRequestHeader=Cookie
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak-spring-gateway-client:
+            provider: my-keycloak-provider
+            client-id: trap2-gateway-client
+            client-secret: 8ihQli4nf3P94ON7SIUVbjderoMEv4ND
+            authorization-grant-type: authorization_code
+            redirect-uri-template: '{baseUrl}/login/oauth2/code/{registrationId}'
+            scope: openid
+        provider:
+          my-keycloak-provider:
+            token-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/token
+            authorization-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/auth
+            user-info-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/certs
+            issuer-uri: http://localhost:7080/realms/my-realm
+            user-name-attribute: preferred_username
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    org.springframework.security.oauth2: DEBUG
+   # org.springframework.cloud.gateway: DEBUG
+   # org.springframework.http.server.reactive: DEBUG
+   # org.springframework.web.reactive: DEBUG
+    #reactor.netty.http.client: DEBUG
+    org:
+      springframework:
+        security: DEBUG
+
+
+
 eureka:
   instance:
     preferIpAddress: true
@@ -21,7 +102,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl.defaultZone: http://localhost:7070/eureka/
-
+  
 
 
 
