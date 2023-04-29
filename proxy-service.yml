@@ -56,14 +56,14 @@ spring:
       client:
         registration:
           keycloak-spring-gateway-client:
-            provider: my-keycloak-provider
+            provider: keycloak
             client-id: trap2-gateway-client
             client-secret: kurqXHOtyQUEVBuZ5neiPSrPfUy4YT0b
             authorization-grant-type: authorization_code
             redirect-uri-template: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope: openid
         provider:
-          my-keycloak-provider:
+          keycloak:
             token-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/token
             authorization-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/auth
             user-info-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/userinfo
