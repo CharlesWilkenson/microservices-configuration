@@ -48,7 +48,7 @@ spring:
         registration:
           trap2-web-client:
             client-id: trap2-gateway-client
-            client-secret: 8ihQli4nf3P94ON7SIUVbjderoMEv4ND
+            client-secret: lpbY3R0IWkxHaLQYbPTd8I76tS3GLAng
             authorization-grant-type: client_credentials
 
         provider:
