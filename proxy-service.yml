@@ -58,7 +58,7 @@ spring:
           keycloak-spring-gateway-client:
             provider: keycloak
             client-id: trap2-gateway-client
-            client-secret: nMY5KxaqeRlIRr2J7riMTHwoC9zbLTnQ
+            client-secret: 5GYOSzdpIBFoNklwYTY2XemjkVO3QLu9
             authorization-grant-type: authorization_code
             redirect-uri-template: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope: openid
