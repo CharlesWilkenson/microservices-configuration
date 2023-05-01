@@ -68,7 +68,7 @@ spring:
             authorization-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/auth
             user-info-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/userinfo
             #jwk-set-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/certs
-            #issuer-uri: http://localhost:7080/realms/my-realm
+            issuer-uri: http://localhost:7080/realms/my-realm
             user-name-attribute: preferred_username
 
 management:
