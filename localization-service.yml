@@ -29,7 +29,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maxLifetime: 600000
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/localizationdb #${ENGINE_DB_URL}
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3303/localizationdb #${ENGINE_DB_URL}
     username: wilki #${DB_USER_NAME}
     password: wilki123 #${DB_USER_PASS}
   flyway:
