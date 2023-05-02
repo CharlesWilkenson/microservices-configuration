@@ -23,9 +23,10 @@ spring:
       ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    database-platform: org.hibernate.dialect.MySQL57Dialect
+    database-platform: org.hibernate.dialect.MySQLDialect
     database: mysql
   datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maxLifetime: 600000
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/localizationdb #${ENGINE_DB_URL}
