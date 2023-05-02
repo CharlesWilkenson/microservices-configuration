@@ -23,14 +23,14 @@ spring:
       ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
-    database: postgresql
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    database: mysql
   datasource:
     hikari:
       maxLifetime: 600000
-    url: jdbc:postgresql://localhost:5436/localizationdb #${ENGINE_DB_URL}
-    username: postgres #${DB_USER_NAME}
-    password: postgres #${DB_USER_PASS}
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/localizationdb #${ENGINE_DB_URL}
+    username: wilki #${DB_USER_NAME}
+    password: wilki123 #${DB_USER_PASS}
   flyway:
     locations: classpath:db.migration
     baseline-on-migrate: true
