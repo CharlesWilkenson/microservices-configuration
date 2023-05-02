@@ -28,7 +28,7 @@ spring:
   datasource:
     hikari:
       maxLifetime: 600000
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/profiledb #${ENGINE_DB_URL}
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3301/profileb?useUnicode=true&characterEncoding=utf8&useSSL=true&useLegacyDatetimeCode=false&serverTimezone=UTC #${ENGINE_DB_URL} #${ENGINE_DB_URL}
     username: wilki #${DB_USER_NAME}
     password: wilki123 #${DB_USER_PASS}
   flyway:
