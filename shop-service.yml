@@ -30,21 +30,31 @@ spring:
   datasource:
     hikari:
       maxLifetime: 600000
-    url: jdbc:postgresql://localhost:5432/shopdb 
-    username: postgres 
-    password: postgres
+    url: jdbc:postgresql://localhost:5434/shopdb 
+    username: wilki 
+    password: wilki123
   flyway:
     locations: classpath:db.migration
     baseline-on-migrate: true
     flyway:
       ignore-future-migrations: false
 
-
   security:
     oauth2:
       resourceserver:
         jwt:
           jwk-set-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/certs
+
+      client:
+        registration:
+          trap2-web-client:
+            client-id: trap2-gateway-client
+            client-secret: 52hp8hnpSKijqKdYIctAxVG9lrabFhox
+            authorization-grant-type: client_credentials
+
+        provider:
+          trap2-web-client:
+            token-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/token
 
   rabbitmq:
     host: localhost
