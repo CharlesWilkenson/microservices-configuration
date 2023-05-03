@@ -31,7 +31,7 @@ spring:
   datasource:
     hikari:
       maxLifetime: 600000
-    url: jdbc:postgresql://localhost:5433/profiledb
+    url: jdbc:postgresql://localhost:5432/profiledb
     username: wilki
     password: wilki123
   flyway:
