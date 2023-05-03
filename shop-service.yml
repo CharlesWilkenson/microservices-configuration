@@ -6,6 +6,8 @@ server:
       enabled: false
 
 spring:
+  application:
+    name: shop-service
   jpa:
     properties:
       hibernate:
@@ -23,14 +25,14 @@ spring:
       ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    database-platform: org.hibernate.dialect.MySQL57Dialect
-    database: mysql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
   datasource:
     hikari:
       maxLifetime: 600000
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/localizationdb #${ENGINE_DB_URL}
-    username: wilki #${DB_USER_NAME}
-    password: wilki123 #${DB_USER_PASS}
+    url: jdbc:postgresql://localhost:5432/shopdb 
+    username: postgres 
+    password: postgres
   flyway:
     locations: classpath:db.migration
     baseline-on-migrate: true
@@ -44,22 +46,11 @@ spring:
         jwt:
           jwk-set-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/certs
 
-      client:
-        registration:
-          trap2-web-client:
-            client-id: trap2-gateway-client
-            client-secret: qxhNWdDN0ZYWGq3WWxT8hyRJdbUn5xiV
-            authorization-grant-type: client_credentials
-
-        provider:
-          trap2-web-client:
-            token-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/token
-
   rabbitmq:
     host: localhost
     port: 5672
     username: rabbit
-    password: rabbit  
+    password: rabbit
 
   messages:
     basename: messages/messages
@@ -67,7 +58,8 @@ spring:
   servlet:
     multipart:
       max-file-size: 15MB
-      max-request-size: 10MB
+      max-request-size: 10MB      
+
 
   mvc:
     path:
@@ -80,8 +72,6 @@ spring:
    # activate:
      # on-profile:
        # active: dev
-path:
-  dirname: ${user.home}/logoBoutiques/
 
 eureka:
   instance:
@@ -144,5 +134,5 @@ logging:
   pattern:
     level: 5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]
 
-
-
+path:
+  dirname: ${user.home}/logoBoutiques/
