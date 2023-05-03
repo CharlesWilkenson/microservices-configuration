@@ -30,7 +30,7 @@ spring:
   datasource:
     hikari:
       maxLifetime: 600000
-    url: jdbc:postgresql://localhost:5435/localizationdb
+    url: jdbc:postgresql://localhost:5432/localizationdb
     username: wilki
     password: wilki123
   flyway:
