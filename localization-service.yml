@@ -33,11 +33,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/localizationdb
     username: wilki
     password: wilki123
-  flyway:
-    locations: classpath:db.migration
-    baseline-on-migrate: true
-    flyway:
-      ignore-future-migrations: false
 
 
   security:
