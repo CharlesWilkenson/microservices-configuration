@@ -57,18 +57,18 @@ spring:
         registration:
           keycloak-spring-gateway-client:
             provider: keycloak
-            client-id: trap2-gateway-client
-            client-secret: 52hp8hnpSKijqKdYIctAxVG9lrabFhox
+            client-id: R2dpxQ3vPrtfgF72
+            client-secret: fDw7Mpkk5czHNuSRtmhGmAGL42CaxQB9
             authorization-grant-type: authorization_code
-            redirect-uri-template: http://localhost:9999/login/oauth2/code/keycloak-spring-gateway-client
+            redirect-uri-template: http://localhost:7081/login/oauth2/code/user-client-oidc
             scope: openid
         provider:
           keycloak:
-            token-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/token
-            authorization-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/auth
-            user-info-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/userinfo
-            jwk-set-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/certs
-            issuer-uri: http://localhost:7080/realms/my-realm
+            token-uri: http://localhost:7081/oauht2/token
+            authorization-uri: http://localhost:7081/oauth2/authorize
+            #user-info-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/userinfo
+            #jwk-set-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/certs
+            issuer-uri: http://localhost:7081
             user-name-attribute: preferred_username
 
 management:
