@@ -55,7 +55,7 @@ spring:
     oauth2:
       client:
         registration:
-          keycloak-spring-gateway-client:
+          user-client-oidc:
             provider: auth-server
             client-id: R2dpxQ3vPrtfgF72
             client-secret: fDw7Mpkk5czHNuSRtmhGmAGL42CaxQB9
