@@ -44,7 +44,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://localhost:7080/realms/my-realm/protocol/openid-connect/certs
+          jwk-set-uri: http://localhost:7081
 
   rabbitmq:
     host: localhost
